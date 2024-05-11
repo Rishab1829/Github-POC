@@ -3,15 +3,6 @@ pipeline{
       label "k8-slaves-node-16"
     }
 
-    options {
-      //discard after number of specified builds
-      buildDiscarder(logRotator(daysToKeepStr: '10', numToKeepStr: '10'))
-      //disableConcurrentBuilds()
-      //parallelsAlwaysFailFast()
-      ansiColor('xterm')
-      timeout(time: 60, unit: 'MINUTES')
-    }
-    
     stages{
         stage("Checkout"){
             steps{
